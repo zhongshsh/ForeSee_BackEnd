@@ -46,7 +46,6 @@ public class IndustryNews {
             count ++;
             String code = it.next();
             Document originDoc = collection.find(eq("stock_code", code))
-<<<<<<< HEAD
                                 .sort(Sorts.descending("date")).first();
             Document companyDoc = collectionTmp.find(eq("companyInfo.stock_code", code)).first();
             try {
@@ -59,25 +58,10 @@ public class IndustryNews {
                 log.info("企业第一条 news id 缺失："+code);
             }
         }
-=======
-                                .sort(Sorts.descending("date")).iterator().next();
-            Document companyDoc = collectionTmp.find(eq("companyInfo.stock_code", code)).first();
-            originDoc.remove("_id");
-            originDoc.remove("stock_code");
-            originDoc.put("companyInfo", companyDoc.get("companyInfo"));
-            sb.append(originDoc.toJson());
-            sb.append(",");
-        }
-        
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("]}");
-<<<<<<< HEAD
-=======
-        log.info("has already queried industryNews from MongoDB");
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         return sb.toString();
     }
 

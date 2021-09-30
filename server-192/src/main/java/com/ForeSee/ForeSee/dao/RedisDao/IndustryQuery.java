@@ -19,24 +19,16 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-<<<<<<< HEAD
 import com.mongodb.MongoClient;
 import org.json.JSONObject;
 import com.ForeSee.ForeSee.dao.MongoDBDao.*;
 import org.bson.Document;
 import java.util.Arrays;
 import com.ForeSee.ForeSee.dao.*;
-=======
-
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
 /**
  * @author zhongshsh
  * @ClassName IndustryQuery
  * @Description 关于行业信息的相关检索
-<<<<<<< HEAD
-=======
- * @create 2021-03-02
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
  */
 
 @Slf4j
@@ -54,7 +46,6 @@ public class IndustryQuery {
     @Autowired
     FuzzySearch fz;
 
-<<<<<<< HEAD
     //http访问flask
     @Autowired
     HttpDao httpDao;
@@ -98,8 +89,6 @@ public class IndustryQuery {
         return result;
     }
 
-=======
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
     /**
      * 根据传入的industryCode/industryName，返回所有检索字段对应检索结果的industryCode
      * @param industryCode/industryName
@@ -112,11 +101,7 @@ public class IndustryQuery {
         Jedis jedis = jedisUtil.getClient();
         jedis.select(2);
         String industryCode = jedis.get(key);
-<<<<<<< HEAD
         // log.info("DB 2: "+key+"; result: "+industryCode);
-=======
-        log.info("DB 2: "+key+"; result: "+industryCode);
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         jedis.close();
         jedis = null;
         finishTime = System.currentTimeMillis();
@@ -135,7 +120,6 @@ public class IndustryQuery {
     {
         startTime = System.currentTimeMillis();
         Jedis jedis= jedisUtil.getClient();
-<<<<<<< HEAD
         List<String> res = new ArrayList<>();
         Iterator<String> queries = stockCodes.iterator();
         while (queries.hasNext())
@@ -148,23 +132,6 @@ public class IndustryQuery {
                 }
                 
             } catch (Exception e) {
-=======
-        jedis.select(2);
-        List<String> res = new ArrayList<>();
-        Iterator<String> queries = stockCodes.iterator();
-        if(queries.hasNext())
-        {
-            String key = queries.next();
-            try {
-                log.info("DB 2: "+key+"; result: "+jedis.smembers(key));
-                if(jedis.exists(key)){
-                    res.addAll(jedis.smembers(key));
-                }
-                //模糊匹配
-                res.addAll(fz.FuzzySearchList(key, 2));
-                
-            } catch (Exception e){
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
                 System.out.println("Error in RedisDao getIndustryCodes");
                 e.printStackTrace();
             }
@@ -175,10 +142,6 @@ public class IndustryQuery {
         List<String> result = new ArrayList<String>(new LinkedHashSet<String>(res)); //去重（顺序不变）
         finishTime = System.currentTimeMillis();
         log.info("RedisDao getIndustryCodes process time:" + (finishTime - startTime));
-<<<<<<< HEAD
-=======
-
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         return result;  
     }
 
@@ -187,7 +150,6 @@ public class IndustryQuery {
      * @param words
      * @return industryCodeList
      */
-<<<<<<< HEAD
     public List<String> getIndustryByContent(String query)
     {
         List<String> res = new ArrayList<>();
@@ -200,22 +162,10 @@ public class IndustryQuery {
         //不适用多线程，因为每个词次序代表了重要性
         //进行词匹配
         jedis.select(11);
-=======
-    public List<String> getIndustryCodes(String query)
-    {
-        startTime = System.currentTimeMillis();
-        Jedis jedis= jedisUtil.getClient();
-        jedis.select(11);
-        List<String> res = new ArrayList<>();
-        //对检索词串进行切词
-        String queries[] = query.split(" ");
-        int runSize = queries.length;
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         for(int i = 0; i < runSize; i++)
         {
             String key = queries[i];
             try {
-<<<<<<< HEAD
                 res.addAll(fz.FuzzySearchList(key, 2));
                 if(jedis.exists(key)){
                     res.addAll(jedis.smembers(key));
@@ -224,24 +174,11 @@ public class IndustryQuery {
             } catch (Exception e){
                 e.printStackTrace();
             }
-=======
-                if(jedis.exists(key)){
-                    res.addAll(jedis.smembers(key));
-                    log.info("DB 11: "+key+"; result: "+jedis.smembers(key));
-                }
-                
-            } catch (Exception e){
-                System.out.println("Error in RedisDao getIndustryCodes");
-                e.printStackTrace();
-            }
-        
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         }
         jedis.close();
         jedis = null;
         List<String> result = new ArrayList<String>(new LinkedHashSet<String>(res)); //去重（顺序不变）
         finishTime = System.currentTimeMillis();
-<<<<<<< HEAD
         log.info("RedisDao getStockCodes process time:" + (finishTime - startTime));
         return result;
     }
@@ -337,11 +274,6 @@ public class IndustryQuery {
         //去重（顺序不变）
         List<String> result = new ArrayList<String>(new LinkedHashSet<String>(res)); 
         return result; 
-=======
-        log.info("RedisDao getIndustryCodes process time:" + (finishTime - startTime));
-
-        return result;  
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
     }
 
 }

@@ -1,6 +1,5 @@
 # server-192说明
 
-<<<<<<< HEAD
 ## 模块介绍
 
 本模块主要用于数据访问，处理相关业务，并返回所需数据。
@@ -28,26 +27,6 @@
     ├── Neo4j                        --Neo4j数据导入、查询、索引构建
     └── Redis                        --Redis数据导入和结构说明
 
-=======
-目录结构
-
-```
-├─java
-│  └─com
-│      └─ForeSee
-│          └─ForeSee
-│              ├─config          --MongoDB配置
-│              ├─controller      --接收请求并发送给请求数据访问
-│              ├─dao             --数据访问层
-│              │  └─MongoDBDao
-│              ├─service         --所有需求
-│              └─util            --工具类，如MongoDB连接
-└─resources
-    ├─MongoDBDesign  -- MongoDB字段说明、导入语句
-    │  ├─load
-    │  └─structure
-    └─TestData       -- 一些测试数据
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
 ```
 
 ### 配置说明
@@ -95,7 +74,6 @@ eureka:
     ip-address: 192.168.1.103 # 实例所在ip地址
     # 运行在192.168.1.103:8288的微服务实例springcloud-foresee-8288被注册到222上的服务注册中心
     # 可以通过222上的路由网关发现该微服务实例，并将请求转发给该实例
-<<<<<<< HEAD
 ```
 
 
@@ -105,6 +83,3 @@ python模块
 
 qu_module.py
 rank_module.py
-=======
-```
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270

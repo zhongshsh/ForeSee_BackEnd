@@ -2,29 +2,18 @@ package com.ForeSee.ForeSee.service;
 
 import com.ForeSee.ForeSee.dao.MongoDBDao.*;
 import com.ForeSee.ForeSee.dao.RedisDao.*;
-<<<<<<< HEAD
 import com.ForeSee.ForeSee.util.*;
-=======
-import com.ForeSee.ForeSee.util.MongoConn;
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
 import com.mongodb.MongoClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-<<<<<<< HEAD
 // import org.springframework.data.mongodb.MongoDatabaseFactory;
-=======
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
 
 /**
  * @author zhongshsh
  * @ClassName InfoService
  * @Description 静态数据的获取
-<<<<<<< HEAD
-=======
- * @create 2021-03-02
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
  */
 
 @Slf4j
@@ -34,11 +23,8 @@ public class InfoService {
     CompanyQuery companyQ;
     @Autowired
     IndustryQuery industryQ;
-<<<<<<< HEAD
     // @Autowired
     // MongoUtil mu;
-=======
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
 
     /**
      * 根据公司的代号检索mongodb，查出它的基本信息
@@ -48,18 +34,12 @@ public class InfoService {
       public String getCompanyInfo(String stockCode){
         MongoClient mongoClient=null;
         StringBuffer sb;
-<<<<<<< HEAD
         // MongoDatabaseFactory md = mu.mongoDatabaseFactory();
-=======
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         try {
             mongoClient = MongoConn.getConn();
             sb = new StringBuffer();
             String companyInfo = CompanyInfo.getCompanyInfo(stockCode, mongoClient);
-<<<<<<< HEAD
             // String companyInfo = CompanyInfo.getCompanyInfo(stockCode, md);
-=======
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
             sb.append(companyInfo);
         }finally {
             mongoClient.close();

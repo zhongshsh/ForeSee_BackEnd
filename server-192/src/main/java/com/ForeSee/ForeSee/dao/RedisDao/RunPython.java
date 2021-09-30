@@ -19,31 +19,18 @@ import java.util.concurrent.Executors;
 /**
  * @author zhongshsh
  * @ClassName RunPython
-<<<<<<< HEAD
  * @Description 引用外部python代码，根据TF-IDF得到排序query
-=======
- * @Description 引用外部python代码
- * @create 2021-03-02
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
  */
 
 @Slf4j
 @Component
 public class RunPython {
-<<<<<<< HEAD
 
     //运行forVec.py获取向量
     private String runPython(String query, int lineNum){
         String vec = null;
         try {
             Process pyprocess = Runtime.getRuntime().exec("python /home/user02/suoyin/vec/forVec.py "+query);  //在单独的进程中执行
-=======
-    //运行forVec.py获取向量
-    private String runPython(String arg){
-        String vec = null;
-        try {
-            Process pyprocess = Runtime.getRuntime().exec("python /home/user02/suoyin/vec/forVec.py "+arg);  //在单独的进程中执行
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
             pyprocess.waitFor();  //等待直到pyprocess进程执行完毕
             BufferedReader br = new BufferedReader(new InputStreamReader(pyprocess.getInputStream()));
             br.readLine();  //跳过第一行
@@ -51,11 +38,7 @@ public class RunPython {
         } catch (Exception e) {
             e.printStackTrace();
         }
-<<<<<<< HEAD
         return vec;
-=======
-        return vec.replaceAll(" ","");
->>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
     }
 
     //运行forVec.py获取相似度
