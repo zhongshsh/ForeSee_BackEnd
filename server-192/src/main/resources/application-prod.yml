@@ -10,6 +10,18 @@ spring:
       pool:
         min-idle: 0
         max-idle: 100
+        
+  mongodb:
+    custom:
+      host: localhost
+      port: 27017
+      database: ForeSee
+      # 用户认证的数据库
+      authentication-database: admin
+      # 连接池大小
+      connections-per-host: 10
+      # 最小连接池大小
+      min-connections-per-host: 10
 
 #eureka配置
 eureka:

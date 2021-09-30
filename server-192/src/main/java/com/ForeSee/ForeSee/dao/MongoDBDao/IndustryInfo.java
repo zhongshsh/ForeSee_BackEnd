@@ -27,17 +27,24 @@ public class IndustryInfo {
 
         while (it.hasNext()) {
             String code = it.next();
-            Document originDoc = collection.find(eq("IndustryInfo.industry_code", code)).first();
-            originDoc = (Document) originDoc.get("IndustryInfo");
-            sb.append(originDoc.toJson());
-            sb.append(",");
+            try {
+                Document originDoc = collection.find(eq("IndustryInfo.industry_code", code)).first();
+                originDoc = (Document) originDoc.get("IndustryInfo");
+                if (originDoc.toJson() != null) sb.append(originDoc.toJson()+",");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         if (sb.length() > 1) {
-            sb.deleteCharAt(sb.length() - 1);
+            // 存疑，多线程访问时爆数组越界
+            try {
+                sb.deleteCharAt(sb.length() - 1);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         sb.append("]");
-        log.info("has already queried industryInfo from MongoDB based industryCodes");
         return sb.toString();
     }
 
@@ -63,10 +70,9 @@ public class IndustryInfo {
                 sb.append(tmp.toJson());
             }
             
-        }finally {
-            cursor.close();
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-        log.info("has already queried industryInfo from MongoDB based "+industryCode);
         return sb.toString();
     }
 }

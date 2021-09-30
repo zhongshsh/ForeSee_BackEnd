@@ -46,20 +46,22 @@ public class IndustryNews {
             count ++;
             String code = it.next();
             Document originDoc = collection.find(eq("stock_code", code))
-                                .sort(Sorts.descending("date")).iterator().next();
+                                .sort(Sorts.descending("date")).first();
             Document companyDoc = collectionTmp.find(eq("companyInfo.stock_code", code)).first();
-            originDoc.remove("_id");
-            originDoc.remove("stock_code");
-            originDoc.put("companyInfo", companyDoc.get("companyInfo"));
-            sb.append(originDoc.toJson());
-            sb.append(",");
+            try {
+                originDoc.remove("_id");
+                originDoc.remove("stock_code");
+                originDoc.put("companyInfo", companyDoc.get("companyInfo"));
+                sb.append(originDoc.toJson()+",");
+            }catch (Exception e){
+                e.printStackTrace();
+                log.info("企业第一条 news id 缺失："+code);
+            }
         }
-        
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("]}");
-        log.info("has already queried industryNews from MongoDB");
         return sb.toString();
     }
 

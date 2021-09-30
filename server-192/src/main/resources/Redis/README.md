@@ -12,6 +12,7 @@
 | ------ | --------------------------------------------------- | ----------------------- |
 | 1      | stock_code/company_name/industry_name/industry_code | 对应stock_code的集合    |
 | 2      | industry_name/industry_code                         | 对应industry_code字符串 |
+| 9      | 新闻标题分词                                        | news_ids |
 | 11     | 行业简介分词                                        | industry_codes          |
 | 12     | 行业资讯分词                                        | report_ids              |
 | 13     | 企业分词                                            | stock_codes             |

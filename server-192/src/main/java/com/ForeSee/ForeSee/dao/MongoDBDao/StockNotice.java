@@ -34,21 +34,52 @@ public class StockNotice {
     private static MongoCollection<Document> collectionTmp;
     private static int totalRecords;
 
+
+     /**
+     * 查询Notice表，根据noticeIds返回stockcodes信息，每页10，单页按时间排序，添加企业信息，用于一框式检索结果展示
+     * @param noticeIds
+     * @return 
+     */
+    public static List<String> getNoticeBasedQuery(List<String> noticeIds, MongoClient client) {
+        List<Integer> idList = new ArrayList<>();
+        List<String> rec = new ArrayList<>();
+        CollectionUtils.collect(noticeIds, new Transformer() {
+            @Override
+            public Object transform(Object o) {
+                return Integer.valueOf(o.toString());
+            }
+        }, idList);
+        Iterator<Integer> it = idList.iterator();
+        collection = client.getDatabase("ForeSee").getCollection(tableName);
+        try {
+            while (it.hasNext()) {
+                Document originDoc = collection.find(in("notice_id", it.next())).first();
+                rec.add(originDoc.get("stock_code")+"");
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        
+        return rec;
+    }
+
+
      /**
      * 查询Notice表，根据stockCodes返回公告信息，每页10，按时间排序，添加企业信息，用于一框式检索倒推逻辑
      * @param stockCodes
      * @return 见/server-192/src/main/resources/FrontEndData/Query/companyNotice.json
      */
     public static String getNoticeBasedStockCodes(List<String> stockCodes, MongoClient client, String page) {
-        totalRecords = 0;
+        totalRecords = stockCodes.size();
         Iterator<String> it = stockCodes.listIterator((Integer.parseInt(page)-1)*pageSize);
         String head="{\"page\": "+page+",\"totalRecords\":"+totalRecords+",\"notice\": [";
         sb = new StringBuilder(head);
         try {
             collection = client.getDatabase("ForeSee").getCollection(tableName);
             collectionTmp = client.getDatabase("ForeSee").getCollection("companyInfo");
-            while (it.hasNext() ) {
-                
+            int count = 0;
+            while (it.hasNext() && count < 10) {
+                count ++;
                 String code = it.next();
                 Document originDoc = collection.find(eq("stock_code", code))
                                     .sort(Sorts.descending("notice_time")).iterator().next();
@@ -58,16 +89,14 @@ public class StockNotice {
                 originDoc.put("companyInfo", companyDoc.get("companyInfo"));
                 sb.append(originDoc.toJson());
                 sb.append(",");
-                totalRecords ++;
             }
         } catch (Exception e){
-            log.info("Something Wrong in getNewsBasedQuery news_id");
+            e.printStackTrace();
         }
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("]}");
-        log.info("has already queried companyNotice from MongoDB based noticeIds");
         return sb.toString().replace("'", "");
     }
 
@@ -93,7 +122,6 @@ public class StockNotice {
         collection = client.getDatabase("ForeSee").getCollection(tableName);
         collectionTmp = client.getDatabase("ForeSee").getCollection("companyInfo");
         cursor = collection.find(in("notice_id", idList))
-                .sort(Sorts.descending("notice_time"))
                 .iterator();
         String head="{\"page\": "+page+",\"totalRecords\":"+totalRecords+",\"notice\": [";
         sb = new StringBuilder(head);
@@ -108,13 +136,12 @@ public class StockNotice {
                 sb.append(",");
             }
         } catch (Exception e){
-            log.info("Something Wrong in getNoticeBasedQuery noticeIds");
+            e.printStackTrace();
         }
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("]}");
-        log.info("has already queried companyNotice from MongoDB based noticeIds");
         return sb.toString().replace("'", "");
     }
 
@@ -138,20 +165,18 @@ public class StockNotice {
                 if (count >= (p-1)*pageSize && count < p*pageSize){
                     originDoc.remove("_id");
                     originDoc.remove("stock_code");
-                    sb.append(originDoc.toJson());
-                    sb.append(",");
+                    sb.append(originDoc.toJson()+",");
                 }
                 count ++;
             }
-        } finally {
-            cursor.close();
+        }  catch (Exception e){
+            e.printStackTrace();
         }
 
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("],\"totalRecords\":"+count+"}");
-        log.info("has already queried companyNotice from MongoDB based "+stockCode);
         return sb.toString();
     }
 

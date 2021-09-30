@@ -37,7 +37,6 @@ public class StockNews {
      * @return 见/server-192/src/main/resources/FrontEndData/Query/companyNews.json
      */
     public static String getNewsBasedStockCodes(List<String> stockCodes, MongoClient client, String page) {
-        
         totalRecords = stockCodes.size();
         try{
             stockCodes = stockCodes.subList((Integer.parseInt(page)-1)*pageSize, Integer.parseInt(page)*pageSize);
@@ -85,8 +84,7 @@ public class StockNews {
                 return Integer.valueOf(o.toString());
             }
         }, idList);
-        cursor = collection.find(in("news_id", idList))
-                    .limit(pageSize).iterator();
+        cursor = collection.find(in("news_id", idList)).iterator();
         while (cursor.hasNext()) {
             Document originDoc = cursor.next();
             stockCodes.add((String)originDoc.get("stock_code"));
@@ -113,18 +111,17 @@ public class StockNews {
             @Override
             public Object transform(Object o) {
                 return Integer.valueOf(o.toString());
+                
             }
         }, idList);
+        Iterator<Integer> it = idList.iterator();
         collection = client.getDatabase("ForeSee").getCollection(tableName);
         collectionTmp = client.getDatabase("ForeSee").getCollection("companyInfo");
-        cursor = collection.find(in("news_id", idList))
-                .sort(Sorts.descending("date"))
-                .iterator();
         String head="{\"page\": "+page+",\"totalRecords\":"+totalRecords+",\"news\": [";
         sb = new StringBuilder(head);
         try {
-            while (cursor.hasNext()) {
-                Document originDoc = cursor.next();
+            while (it.hasNext()) {
+                Document originDoc = collection.find(in("news_id", it.next())).first();
                 Document companyDoc = collectionTmp.find(eq("companyInfo.stock_code", originDoc.get("stock_code"))).first();
                 originDoc.remove("_id");
                 originDoc.remove("stock_code");
@@ -133,7 +130,7 @@ public class StockNews {
                 sb.append(",");
             }
         } catch (Exception e){
-            log.info("Something Wrong in getNewsBasedQuery news_id");
+            e.printStackTrace();
         }
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
@@ -165,20 +162,18 @@ public class StockNews {
                 if (totalRecords >= bPage && totalRecords < ePage){
                     originDoc.remove("_id");
                     originDoc.remove("stock_code");
-                    sb.append(originDoc.toJson());
-                    sb.append(",");
+                    sb.append(originDoc.toJson()+",");
                 }
                 totalRecords ++;
             }
-        } finally {
-            cursor.close();
+        } catch (Exception e){
+            e.printStackTrace();
         }
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("],\"totalRecords\":"+totalRecords+"}");
        
-        log.info("has already queried companyNews from MongoDB based "+stockCode);
         return sb.toString().replace("'", "");
     }
 

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="270a2090-c46f-49ab-9017-c0f04023fd7e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-121/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client-121/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-121/src/main/java/com/ForeSee/ForeSee/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-121/src/main/java/com/ForeSee/ForeSee/ClientMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-121/src/main/java/com/ForeSee/ForeSee/controller/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-121/src/main/java/com/ForeSee/ForeSee/controller/InfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurekaServer-222/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaServer-222/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurekaServer-222/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaServer-222/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-222/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-222/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/controller/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/controller/InfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/controller/QueryController.Java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/controller/QueryController.Java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/CompanyInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/CompanyInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/IndustryInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/IndustryInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/IndustryNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/IndustryNews.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/IndustryReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/IndustryReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/StockNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/StockNews.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/StockNotice.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/StockNotice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/StockResearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/MongoDBDao/StockResearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/Neo4jDao/relationQuery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/CompanyQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/CompanyQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/FuzzySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/FuzzySearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/IndustryQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/IndustryQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/NewsQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/NewsQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/NoticeQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/NoticeQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/ReportQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/ReportQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/RunPython.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/dao/RedisDao/RunPython.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/service/InfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/service/InfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/service/QueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/service/QueryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_105.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_105.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_106.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_106.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_112.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_112.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_113.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_113.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_222.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/JedisUtil_222.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/MongoConn.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/java/com/ForeSee/ForeSee/util/MongoConn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/MongoDB/Load/loadCompanyInfo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/MongoDB/Load/loadIndustryInfo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/MongoDB/Load/loadNews.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/MongoDB/Load/loadNotice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/MongoDB/Load/loadReport.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/MongoDB/Load/loadResearch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/MongoDB/Load/report.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/MongoDB/Load/seeDB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/MongoDB/Load/windowsLoad.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/Redis/loadBasicInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/resources/Redis/loadBasicInfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/Redis/loadQuery.py" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/resources/Redis/loadQuery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/Redis/newsLoadLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/Redis/noticeLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/Redis/reportLoadLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/Redis/structure.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-192/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server-192/src/main/resources/application-prod.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1pCVklgjg75Hghf8MzxFlSdDZgk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.ServerMain">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="client-121" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ForeSee.ForeSee.ClientMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gateway-222" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ForeSee.ForeSee.GatewayMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="server-192" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ForeSee.ForeSee.ServerMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="eurekaServerMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eurekaServer-222" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ForeSee.ForeSee.eurekaServerMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="270a2090-c46f-49ab-9017-c0f04023fd7e" name="Default Changelist" comment="" />
+      <created>1614687204799</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614687204799</updated>
+      <workItem from="1614687208891" duration="2410000" />
+      <workItem from="1614691313717" duration="506000" />
+      <workItem from="1632971498652" duration="1706000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
