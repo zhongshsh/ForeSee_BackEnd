@@ -5,7 +5,10 @@ ForeSee是**基于大规模商业情报融合的企业智能实时分析及决�
 <br>
 
 欢迎访问 [ForeSee](http://180.76.249.27/sysuforesee/foresee/#/) 以查看案例展示。
+
 欢迎访问我们的GitHub项目 [ForeSee](https://github.com/panzy25/SYSU-ForeSee) 以查看全栈代码。
+
+<br>
 
 此仓库放置了我负责的后端部分。ForeSee后端模块基于 [Spring Cloud](https://spring.io/projects/spring-cloud) ([Github](https://github.com/spring-projects/spring-cloud)) 、[Neo4j](https://neo4j.com/)、[Redis](https://redis.io/)、[MongoDB](https://www.mongodb.com/cn) 开发。
 
