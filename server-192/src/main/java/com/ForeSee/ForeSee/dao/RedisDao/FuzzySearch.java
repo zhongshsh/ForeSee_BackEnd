@@ -15,7 +15,10 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -24,6 +27,10 @@ import java.util.concurrent.Executors;
  * @author zhongshsh
  * @ClassName FuzzySearch
  * @Description 模糊匹配
+<<<<<<< HEAD
+=======
+ * @create 2021-03-02
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
  */
 
 @Slf4j
@@ -43,6 +50,7 @@ class FuzzySearch {
         Jedis jedis = jedisUtil.getClient();
         jedis.select(db);
         List<String> keys = FuzzySearchQuery(query, db);
+<<<<<<< HEAD
         List<String> list = new ArrayList<>();
         if(keys.size()>0){
             for(String key : keys){
@@ -50,6 +58,19 @@ class FuzzySearch {
                 else list.addAll(jedis.smembers(key));
             }
         }
+=======
+        log.info("模糊匹配到keys："+keys.toString());
+        List<String> list = new ArrayList<>();
+        if(keys.size()>0){
+            for(String key : keys){
+            list.addAll(jedis.smembers(key));
+            }
+        }else {
+            log.info("redis没有查到，返回"+list.toString());
+            return list;
+        }
+        log.info("redis模糊查找:"+query+",返回"+list.toString());
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         jedis.close();
         jedis = null;
         return list;
@@ -64,7 +85,12 @@ class FuzzySearch {
         String pattern=query.trim().replaceAll("\\s+","*");
         pattern="*" + pattern + "*";
         List<String>res=jedisScan(pattern, db);
+<<<<<<< HEAD
         // log.info("{} 模糊匹配,size:{}, db: {}",pattern, res.size(), db);
+=======
+        log.info("{} 模糊匹配,size:{}",pattern, res.size());
+//        return res.subList(0,Math.min(10,res.size()));
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         return res;
     }
 
@@ -76,9 +102,26 @@ class FuzzySearch {
     private List<String> jedisScan(String pattern, int db){
         Jedis jedis= jedisUtil.getClient();
         jedis.select(db);
+<<<<<<< HEAD
         List<String> keys = new ArrayList<>();
         Set<String> set = jedis.keys(pattern);  
         keys.addAll(set);
+=======
+        String cursor = ScanParams.SCAN_POINTER_START;
+        List<String> keys = new ArrayList<>();
+        ScanParams scanParams = new ScanParams();
+        scanParams.match(pattern);
+        scanParams.count(10000);
+        while (true){
+            //使用scan命令获取数据，使用cursor游标记录位置，下次循环使用
+            ScanResult<String> scanResult = jedis.scan(cursor, scanParams);
+            cursor = scanResult.getCursor();// 返回0 说明遍历完成
+            keys = scanResult.getResult();
+            if ("0".equals(cursor)){
+                break;
+            }
+        }
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         jedis.close();
         jedis = null;
         return keys;

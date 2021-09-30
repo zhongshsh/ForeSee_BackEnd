@@ -17,7 +17,7 @@
       <module name="eurekaServer-222" target="1.8" />
       <module name="ForeSee" target="1.8" />
       <module name="gateway-222" target="1.8" />
-      <module name="server-192" target="1.8" />
+      <module name="server-192" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

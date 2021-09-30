@@ -38,8 +38,11 @@ public class IndustryReport {
     private static MongoCollection<Document> collectionTmp;
     private static int totalRecords;
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
     /**
      * 查询Report表，根据一系列industryCodes返回资讯信息，每页10，每个行业返回最新的一条report，用于一框式检索的倒推逻辑
      * @param industryCodes
@@ -85,6 +88,7 @@ public class IndustryReport {
         }catch (Exception e){
             reportIds = reportIds.subList((Integer.parseInt(page)-1)*pageSize, totalRecords);
         }
+<<<<<<< HEAD
         collection = client.getDatabase("ForeSee").getCollection(tableName);
         collectionTmp = client.getDatabase("ForeSee").getCollection("industryInfo");
         Iterator<String> it = reportIds.iterator();
@@ -104,14 +108,47 @@ public class IndustryReport {
             
             sb.append(originDoc.toJson());
             sb.append(",");
+=======
+        
+        collection = client.getDatabase("ForeSee").getCollection(tableName);
+        collectionTmp = client.getDatabase("ForeSee").getCollection("industryInfo");
+        cursor = collection.find(in("id", reportIds))
+                .sort(Sorts.descending("date"))
+                .iterator();
+        String head="{\"page\": "+page+",\"totalRecords\":"+totalRecords+",\"information\": [";
+        sb = new StringBuilder(head);
+
+        List<String> ids = new ArrayList<String>();
+        String id = "";  // 解决因为一条资讯对应多家行业的重复问题
+        while (cursor.hasNext()) {
+            Document originDoc = cursor.next();
+            id = ""+originDoc.get("id");
+            if (ids.contains(id)) {
+                continue;
+            } else {
+                ids.add(id);
+                Document industryDoc = collectionTmp.find(eq("IndustryInfo.industry_code", originDoc.get("industry"))).first();
+                originDoc.remove("_id");
+                originDoc.remove("industry");
+                originDoc.put("IndustryInfo", industryDoc.get("IndustryInfo"));
+                sb.append(originDoc.toJson());
+                sb.append(",");
+            }
+
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         }
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("]}");
+<<<<<<< HEAD
         return sb.toString();
         
         
+=======
+        log.info("has already queried industryReport from MongoDB based reportIds");
+        return sb.toString();
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
     }
 
     /**
@@ -136,14 +173,27 @@ public class IndustryReport {
             if (totalRecords >= bPage && totalRecords < ePage){
                 originDoc.remove("_id");
                 originDoc.remove("industry");
+<<<<<<< HEAD
                 sb.append(originDoc.toJson()+",");
             }
             totalRecords ++;
         }
+=======
+                sb.append(originDoc.toJson());
+                sb.append(",");
+            }
+            totalRecords ++;
+        }
+        cursor.close();
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("],\"totalRecords\":"+totalRecords+"}");
+<<<<<<< HEAD
+=======
+        log.info("has already queried industryReport from MongoDB based "+industryCode);
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
 
         return sb.toString();
     }

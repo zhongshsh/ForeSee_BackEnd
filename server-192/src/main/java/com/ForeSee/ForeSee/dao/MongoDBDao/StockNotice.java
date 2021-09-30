@@ -34,6 +34,7 @@ public class StockNotice {
     private static MongoCollection<Document> collectionTmp;
     private static int totalRecords;
 
+<<<<<<< HEAD
 
      /**
      * 查询Notice表，根据noticeIds返回stockcodes信息，每页10，单页按时间排序，添加企业信息，用于一框式检索结果展示
@@ -64,22 +65,33 @@ public class StockNotice {
     }
 
 
+=======
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
      /**
      * 查询Notice表，根据stockCodes返回公告信息，每页10，按时间排序，添加企业信息，用于一框式检索倒推逻辑
      * @param stockCodes
      * @return 见/server-192/src/main/resources/FrontEndData/Query/companyNotice.json
      */
     public static String getNoticeBasedStockCodes(List<String> stockCodes, MongoClient client, String page) {
+<<<<<<< HEAD
         totalRecords = stockCodes.size();
+=======
+        totalRecords = 0;
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         Iterator<String> it = stockCodes.listIterator((Integer.parseInt(page)-1)*pageSize);
         String head="{\"page\": "+page+",\"totalRecords\":"+totalRecords+",\"notice\": [";
         sb = new StringBuilder(head);
         try {
             collection = client.getDatabase("ForeSee").getCollection(tableName);
             collectionTmp = client.getDatabase("ForeSee").getCollection("companyInfo");
+<<<<<<< HEAD
             int count = 0;
             while (it.hasNext() && count < 10) {
                 count ++;
+=======
+            while (it.hasNext() ) {
+                
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
                 String code = it.next();
                 Document originDoc = collection.find(eq("stock_code", code))
                                     .sort(Sorts.descending("notice_time")).iterator().next();
@@ -89,14 +101,25 @@ public class StockNotice {
                 originDoc.put("companyInfo", companyDoc.get("companyInfo"));
                 sb.append(originDoc.toJson());
                 sb.append(",");
+<<<<<<< HEAD
             }
         } catch (Exception e){
             e.printStackTrace();
+=======
+                totalRecords ++;
+            }
+        } catch (Exception e){
+            log.info("Something Wrong in getNewsBasedQuery news_id");
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         }
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("]}");
+<<<<<<< HEAD
+=======
+        log.info("has already queried companyNotice from MongoDB based noticeIds");
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         return sb.toString().replace("'", "");
     }
 
@@ -122,6 +145,10 @@ public class StockNotice {
         collection = client.getDatabase("ForeSee").getCollection(tableName);
         collectionTmp = client.getDatabase("ForeSee").getCollection("companyInfo");
         cursor = collection.find(in("notice_id", idList))
+<<<<<<< HEAD
+=======
+                .sort(Sorts.descending("notice_time"))
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
                 .iterator();
         String head="{\"page\": "+page+",\"totalRecords\":"+totalRecords+",\"notice\": [";
         sb = new StringBuilder(head);
@@ -136,12 +163,20 @@ public class StockNotice {
                 sb.append(",");
             }
         } catch (Exception e){
+<<<<<<< HEAD
             e.printStackTrace();
+=======
+            log.info("Something Wrong in getNoticeBasedQuery noticeIds");
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         }
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("]}");
+<<<<<<< HEAD
+=======
+        log.info("has already queried companyNotice from MongoDB based noticeIds");
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         return sb.toString().replace("'", "");
     }
 
@@ -165,18 +200,32 @@ public class StockNotice {
                 if (count >= (p-1)*pageSize && count < p*pageSize){
                     originDoc.remove("_id");
                     originDoc.remove("stock_code");
+<<<<<<< HEAD
                     sb.append(originDoc.toJson()+",");
                 }
                 count ++;
             }
         }  catch (Exception e){
             e.printStackTrace();
+=======
+                    sb.append(originDoc.toJson());
+                    sb.append(",");
+                }
+                count ++;
+            }
+        } finally {
+            cursor.close();
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         }
 
         if (sb.length() > head.length()) {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("],\"totalRecords\":"+count+"}");
+<<<<<<< HEAD
+=======
+        log.info("has already queried companyNotice from MongoDB based "+stockCode);
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         return sb.toString();
     }
 

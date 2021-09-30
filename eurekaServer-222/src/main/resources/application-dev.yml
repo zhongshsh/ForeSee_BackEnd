@@ -8,6 +8,10 @@ eureka:
      register-with-eureka: false
      fetch-registry: false
      service-url:
+<<<<<<< HEAD
        defaultZone: http://localhost:8888/eureka/
    server:
      renewalPercentThreshold: 0.8
+=======
+       defaultZone: http://localhost:8888/eureka/
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270

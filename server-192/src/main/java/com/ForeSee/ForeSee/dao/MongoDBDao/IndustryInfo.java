@@ -27,6 +27,7 @@ public class IndustryInfo {
 
         while (it.hasNext()) {
             String code = it.next();
+<<<<<<< HEAD
             try {
                 Document originDoc = collection.find(eq("IndustryInfo.industry_code", code)).first();
                 originDoc = (Document) originDoc.get("IndustryInfo");
@@ -45,6 +46,19 @@ public class IndustryInfo {
         }
 
         sb.append("]");
+=======
+            Document originDoc = collection.find(eq("IndustryInfo.industry_code", code)).first();
+            originDoc = (Document) originDoc.get("IndustryInfo");
+            sb.append(originDoc.toJson());
+            sb.append(",");
+        }
+        if (sb.length() > 1) {
+            sb.deleteCharAt(sb.length() - 1);
+        }
+
+        sb.append("]");
+        log.info("has already queried industryInfo from MongoDB based industryCodes");
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         return sb.toString();
     }
 
@@ -70,9 +84,16 @@ public class IndustryInfo {
                 sb.append(tmp.toJson());
             }
             
+<<<<<<< HEAD
         }catch (Exception e) {
             e.printStackTrace();
         }
+=======
+        }finally {
+            cursor.close();
+        }
+        log.info("has already queried industryInfo from MongoDB based "+industryCode);
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         return sb.toString();
     }
 }

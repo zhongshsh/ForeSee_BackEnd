@@ -40,6 +40,15 @@
             <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
             <version>1.4.6.RELEASE</version>
         </dependency>
+<<<<<<< HEAD
+=======
+        <!--Eureka客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
     </dependencies>
 
     <build>

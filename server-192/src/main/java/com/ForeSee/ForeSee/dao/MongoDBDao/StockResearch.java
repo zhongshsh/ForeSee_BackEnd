@@ -51,7 +51,12 @@ public class StockResearch {
                 originDoc.remove("_id");
                 originDoc.remove("stock_code");
                 originDoc.remove("industry_code");
+<<<<<<< HEAD
                 sb.append(originDoc.toJson()+",");
+=======
+                sb.append(originDoc.toJson());
+                sb.append(",");
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
             }
             count ++;
         }
@@ -61,6 +66,10 @@ public class StockResearch {
         }
         sb.append("],\"totalRecords\":"+count+"}");
        
+<<<<<<< HEAD
+=======
+        log.info("has already queried companyResearch from MongoDB based "+stockCode);
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         return sb.toString();
     }
 

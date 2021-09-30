@@ -9,9 +9,16 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
+<<<<<<< HEAD
  * @author Zhongshsh
  * @ClassName JedisUtil
  * @Description JedisPool配置以及连接
+=======
+ * @author Zenglr
+ * @ClassName JedisUtil
+ * @Description JedisPool配置以及连接
+ * @create 2020-10-16-7:09 下午
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
  */
 
 @Component
@@ -33,7 +40,11 @@ public class JedisUtil {
     @Bean
     public JedisPool initPoll(){
         JedisPoolConfig jedisPoolConfig=new JedisPoolConfig();
+<<<<<<< HEAD
         jedisPoolConfig.setMaxTotal(10000);
+=======
+        jedisPoolConfig.setMaxTotal(1000);
+>>>>>>> c9ce903df66fa151612f875b4c001909a8b9b270
         jedisPoolConfig.setMaxIdle(MaxIdle);
         jedisPoolConfig.setMinIdle(MinIdle);
         jedisPoolConfig.setTestOnBorrow(true);
