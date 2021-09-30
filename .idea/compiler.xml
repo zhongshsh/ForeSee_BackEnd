@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="server-192" />
+        <module name="eurekaServer-222" />
+        <module name="gateway-222" />
+        <module name="client-121" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="client-121" target="1.8" />
+      <module name="eurekaServer-222" target="1.8" />
+      <module name="ForeSee" target="1.8" />
+      <module name="gateway-222" target="1.8" />
+      <module name="server-192" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
